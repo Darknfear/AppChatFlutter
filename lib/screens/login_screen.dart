@@ -24,6 +24,7 @@ class _LoginState extends State<LoginState> {
         body: SafeArea(
           child: Center(
             child: SingleChildScrollView(
+              controller: ScrollController(),
               padding: EdgeInsets.all(10),
               child: Column(
                 children: [
@@ -47,7 +48,8 @@ class _LoginState extends State<LoginState> {
                                   BorderRadius.all(Radius.circular(10)))),
                     ),
                   ),
-                  Container(),
+                  Container(
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10),
                     child: ButtonTheme(
@@ -56,10 +58,14 @@ class _LoginState extends State<LoginState> {
                       //buttonColor: Colors.blueAccent,
                       child: RaisedButton(
                         elevation: 10,
+                        onPressed: () {},
                         color: Colors.blueAccent,
+                        textColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                        ),
                         child: Text(
                           'Login',
-                          style: TextStyle(color: Colors.white),
                         ),
 
                       ),
@@ -69,7 +75,11 @@ class _LoginState extends State<LoginState> {
                     child: ButtonTheme(
                       minWidth: MediaQuery.of(context).size.width - 10,
                       height: 50,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
                       child: RaisedButton(
+                        onPressed: () {},
                         child: Text(
                           'Register',
                           style: TextStyle(color: Colors.white),
