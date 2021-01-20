@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return LoginState();
+    return RegisterState();
   }
 }
 
-class LoginState extends StatefulWidget {
+class RegisterState extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _LoginState();
+    return _RegisterState();
   }
 }
 
-class _LoginState extends State<LoginState> {
+class _RegisterState extends State<RegisterState> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,7 +35,17 @@ class _LoginState extends State<LoginState> {
                           labelText: 'Enter your username',
                           border: OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)))),
+                              BorderRadius.all(Radius.circular(10)))),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: 'Enter your email',
+                          border: OutlineInputBorder(
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(10)))),
                     ),
                   ),
                   Container(
@@ -46,10 +55,8 @@ class _LoginState extends State<LoginState> {
                           labelText: 'Enter your password',
                           border: OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)))),
+                              BorderRadius.all(Radius.circular(10)))),
                     ),
-                  ),
-                  Container(
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10),
@@ -59,19 +66,14 @@ class _LoginState extends State<LoginState> {
                       //buttonColor: Colors.blueAccent,
                       child: RaisedButton(
                         elevation: 10,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomeScreen())
-                          );
-                        },
-                        color: Colors.blueAccent,
+                        onPressed: () {},
+                        color: Colors.red,
                         textColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(5)),
                         ),
                         child: Text(
-                          'Login',
+                          'Register',
                         ),
 
                       ),
@@ -87,10 +89,10 @@ class _LoginState extends State<LoginState> {
                       child: RaisedButton(
                         onPressed: () {},
                         child: Text(
-                          'Register',
+                          'Login',
                           style: TextStyle(color: Colors.white),
                         ),
-                        color: Colors.red,
+                        color: Colors.blueAccent,
                       ),
                     ),
                   ),
