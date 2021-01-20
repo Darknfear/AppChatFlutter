@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../models/ItemModel.dart';
+import './customs/item_listtitle.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -16,6 +18,12 @@ class HomeState extends StatefulWidget {
 }
 
 class _HomeState extends State<HomeState> {
+  //List<String> listItem = new List();
+
+  Function onTapHome() {}
+  Function onTapProfile() {}
+  Function onTapVideo() {}
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
@@ -28,7 +36,9 @@ class _HomeState extends State<HomeState> {
             builder: (BuildContext context) {
               return IconButton(
                 icon: const Icon(Icons.menu),
-                onPressed: () { Scaffold.of(context).openDrawer(); },
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
                 tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
               );
             },
@@ -42,9 +52,39 @@ class _HomeState extends State<HomeState> {
             child: ListView(
               children: [
                 DrawerHeader(
-                    child: Text('Header'),
+                  decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Material(
+                            borderRadius: BorderRadius.all(Radius.circular(55)),
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              child: Image.asset(
+                                'images/new-logo.png',
+                                height: 90,
+                                width: 90,
+                              ),
+                            )),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            'Nguyễn Văn Hiếu',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-                ListTile(),
+                ItemListTitle(
+                    title: 'Home', iconData: Icons.home, onTap: () {}),
+                ItemListTitle(
+                    title: 'Video', iconData: Icons.call, onTap: () {}),
+                ItemListTitle(
+                    title: 'Profile', iconData: Icons.person, onTap: () {})
               ],
             ),
           ),
